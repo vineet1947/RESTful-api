@@ -60,8 +60,29 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *    description: Use to request all patients
  *    responses:
  *      '200':
- *        description: A successful response
+ *        description: A successful response 
  */
+
+/**
+ * @swagger
+ * /api/getid/{id}:
+ *  get:
+ *    description: Use to request patients id  
+ *    tags : [Users] 
+ *    parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: User id 
+ * 
+ *    responses:
+ *      '200':
+ *        description: A successful response for get id 
+ * 
+ */
+
 
 
 
