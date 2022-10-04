@@ -5,7 +5,7 @@ const { default: mongoose } = require("mongoose");
 const compression = require("compression")
 
 const mongoData = process.env.DATABASE_URL;
-const port = 3000;
+const port = process.env.PORT;
 
 
 
