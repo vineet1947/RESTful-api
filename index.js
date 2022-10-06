@@ -85,7 +85,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /**
  * @swagger
- * /users/{id}:
+ * /api/patch/{id}:
  *  
  *   patch:
  *     summary: Update a user
@@ -130,7 +130,12 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  *         $ref: '#/components/responses/Forbidden'
  *       "404":
  *         $ref: '#/components/responses/NotFound'
- *
+ */
+
+
+/**
+ * @swagger
+ * /api/delete/{id}:
  *   delete:
  *     summary: Delete a user
  *     description: users can delete 
