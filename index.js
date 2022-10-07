@@ -86,98 +86,6 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
 /**
  * @swagger
- * /api/patch/{id}:
- *   patch:
- *     summary: Update a user
- *     description: Logged in users can only update their own information. Only admins can update other users.
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: User id
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *                 format: email
- *                 description: must be unique
- *               password:
- *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
- *     responses:
- *       "200":
- *         description: OK
- *         content:
- *           application/json:
- *             schema:
- *                $ref: '#/components/schemas/User'
- *       "400":
- *         $ref: '#/components/responses/DuplicateEmail'
- *       "401":
- *         $ref: '#/components/responses/Unauthorized'
- *       "403":
- *         $ref: '#/components/responses/Forbidden'
- *       "404":
- *         $ref: '#/components/responses/NotFound'
- *
-*/
-
-
-/**
- * @swagger
- * /api/patch/{id}:
- *   patch:
- *     summary: Update a user
- *     description: users can update their information.
- *     tags: [Users]
- *     parameters:
- *       - in: path
- *         name: id
- *         required: true
- *         schema:
- *           type: string
- *         description: User id
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *               age:
- *                 type: Number
- *                 description: must be number
- *               doctor_name:
- *                 type: string
- *               approved:
- *                 type: Boolean
- *                 description: true or flase
- *     responses:
- *       "200":
- *         description: OK
- */
-
-
-/**
- * @swagger
  * /api/delete/{id}:
  *   delete:
  *     summary: Delete a user
@@ -196,6 +104,31 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
  */
 
 
+
+/**
+ * @swagger
+ * /api/post:
+ *   post:
+ *     description: Get all books
+ *     parameters:
+ *      - name: name 
+ *        description : name of person
+ *        in  : Path
+ *        required: false
+ *        type : String
+ *      - age : age
+ *        description: age bato
+ *        in: Path
+ *        required: false
+ *        type: Number
+ *     responses:
+ *       201:
+ *         description: Created
+ */
+
+
+
+
 app.use(express.json());
 app.use(compression());
 
@@ -206,9 +139,6 @@ app.get('/', (req, res) => {
 
 });
 
-
 app.listen(port, () => {
     console.log(`Server started at ${port}`);
 })
-
-// hell
